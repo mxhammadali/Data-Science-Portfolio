@@ -29,8 +29,6 @@ In case of any issues with Jupyter notebook, refer to this link https://jupyter-
 
 ## Authors
 
-Contributors names and contact info
-
 Muhammad Ali
 [@ma-94](https://www.linkedin.com/in/muhammadali7/)
 
