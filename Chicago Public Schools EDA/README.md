@@ -1,83 +1,55 @@
-# ![WebApp](https://ma-94.github.io/Data-Science-Portfolio/Chicago Public Schools EDA/images/Connecting to IBM db2 database.png)
-# WebApp
-<table>
-<tr>
-<td>
-  A webapp using Quandl API to display history of stock growth in a given period of time. It helps predict the growth of stocks from the  charts of stock performace in any period of time. It helps to judge stocks, with the principle of momentum investing, which returns 1% per month on average.
-</td>
-</tr>
-</table>
+# Project Title
 
+Simple overview of use/purpose.
 
-## Demo
-Here is a working live demo :  https://iharsh234.github.io/WebApp/
+## Description
 
+An in-depth paragraph about your project and overview of use.
 
-## Site
+## Getting Started
 
-### Landing Page
-Currently it is working on all NSE (India) Stocks, BSE (India) Stocks Symbol will be added soon.
+### Dependencies
 
-![](https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG)
+* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* ex. Windows 10
 
-### Query Filled Form
-![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
+### Installing
 
-### Charts
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart1.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart2.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart3.JPG)
+* How/where to download your program
+* Any modifications needed to be made to files/folders
 
+### Executing program
 
-## Mobile support
-The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
+* How to run the program
+* Step-by-step bullets
+```
+code blocks for commands
+```
 
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+## Help
 
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
 
+## Authors
 
+Contributors names and contact info
 
-## [Usage](https://iharsh234.github.io/WebApp/) 
+ex. Dominique Pizzie  
+ex. [@DomPizzie](https://twitter.com/dompizzie)
 
-### Development
-Want to contribute? Great!
+## Version History
 
-To fix a bug or enhance an existing module, follow these steps:
+* 0.2
+    * Various bug fixes and optimizations
+    * See [commit change]() or See [release history]()
+* 0.1
+    * Initial Release
 
-- Fork the repo
-- Create a new branch (`git checkout -b improve-feature`)
-- Make the appropriate changes in the files
-- Add changes to reflect the changes made
-- Commit your changes (`git commit -am 'Improve feature'`)
-- Push to the branch (`git push origin improve-feature`)
-- Create a Pull Request 
+## License
 
-### Bug / Feature Request
+This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/iharsh234/WebApp/issues/new) by including your search query and the expected result.
-
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
-
-
-## Built with 
-
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp) - jQuery simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
-- [Google Chart API](https://developers.google.com/chart/interactive/docs/quick_start) - Free , Rich Gallery , Customizable and Cross-browser compatible.
-- [Bootstrap](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
-
-
-## To-do
-- Add BSE (India) Symbol to the current App.
-- Decide comparison models of Stocks. (suggestions are most welcome).
-- Another WebApp, capable of comparing at least 10 stocks.
-
-## Team
-
-[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
----|---
-[Harsh Vijay ](https://github.com/iharsh234) |[Quandl](https://www.quandl.com)
-
-## [License](https://github.com/iharsh234/WebApp/blob/master/LICENSE.md)
-
-MIT © [Harsh Vijay ](https://github.com/iharsh234)
 
