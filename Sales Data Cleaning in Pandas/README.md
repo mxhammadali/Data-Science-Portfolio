@@ -1,37 +1,31 @@
-# Project Title
+# Sales Data Analysis with Pandas
 
-Simple overview of use/purpose.
+This project involves analysing and answering business questions pertaining to 12 months of sales data with the aid of Python libraries (Pandas, Matplotlib). The data contains electronics store purchases broken down by month, product type, cost, purchase address.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+An in-depth overview of techniques and methods employed in this project are as follows:
+- **Data Cleaning:** Tasks include dropping NaN values from Dataframe, removing rows based on a condition and changing column types (to_numeric, to_datetime, astype.
+- **Data Exploration:** Some of the methods utlised include concatenating multiple csv files to create a single DataFrame (**pd.concat**), adding columns, parsing cells as strings to make new columns (**.str**), using the **.apply()** method, using **groupby** for aggregate analysis and plotting bar charts to visualise data.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Jupyter notebook required. Details can be found at https://jupyter.readthedocs.io/en/latest/install.html 
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Save the files from the folder named Data (click the green "clone or download" button and then click "Download ZIP").
+* Read the files by using Pandas's read_csv method(**pd.read_csv("filepath")**).
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* Run the cells in Jupyter notebook by Shift + Enter (Mac) or pressing run button in the top navigation bar.
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+In case of any issues with Jupyter notebook, refer to this link https://jupyter-notebook.readthedocs.io/en/stable/troubleshooting.html
 
 ## Authors
 
@@ -39,14 +33,6 @@ Contributors names and contact info
 
 Muhammad Ali
 [@ma-94](https://www.linkedin.com/in/muhammadali7/)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
 
 ## License
 
