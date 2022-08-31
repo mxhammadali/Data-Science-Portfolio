@@ -1,4 +1,4 @@
-# ![WebApp](https://iharsh234.github.io/WebApp/images/demo/demo_landing.JPG)
+# ![WebApp](https://ma-94.github.io/Data-Science-Portfolio/Chicago Public Schools EDA/images/Connecting to IBM db2 database.png)
 # WebApp
 <table>
 <tr>
