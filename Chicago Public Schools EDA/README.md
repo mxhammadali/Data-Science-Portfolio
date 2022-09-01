@@ -1,12 +1,12 @@
-# Sales Data Analysis with Pandas
+# Chicago Public School Data Analysis using SQL & Python
 
-This project involves analysing and answering business questions pertaining to 12 months of sales data with the aid of Python libraries (Pandas, Matplotlib). The data contains electronics store purchases broken down by month, product type, cost, purchase address.
+This project involves analysing and answering performance based questions pertaining to Chicago public schools dataset with the aid of Python libraries (Pandas, Matplotlib, Seaborn) and Jupyter SQL magic functions. The dataset, stored in an Db2 database on IBM Cloud instance, contains engagement metrics (student/teacher attendance), locations (city, state, zip code), safety score, family involvement score, college elligbility, college enrollment rate, graduation rate, etc.
 
 ## Description
 
 An in-depth overview of techniques and methods employed in this project are as follows:
-- **Data Cleaning:** Tasks include dropping NaN values from Dataframe, removing rows based on a condition and changing column types (to_numeric, to_datetime, astype.
-- **Data Exploration:** Some of the methods utlised include concatenating multiple csv files to create a single DataFrame (**pd.concat**), adding columns, parsing cells as strings to make new columns (**.str**), using the **.apply()** method, using **groupby** for aggregate analysis and plotting bar charts to visualise data.
+- **Data Loading:** Tasks include manually loading the table using the database console LOAD tool (as opposed to reading the dataset into a Pandas dataframe and then PERSIST it into the database to achieve optimal SQL querying), establsihing a connection with the database (**%sql ibm_db_sa://my-username:my-password@my-hostname:my-port/my-db-name?security=SSL**) and querying the database system catalog to retrieve table metadata.
+- **Data Exploration:** Some of the methods utlised include /teoncatenating multiple csv files to create a single DataFrame (**pd.concat**), adding columns, parsing cells as strings to make new columns (**.str**), using the **.apply()** method, using **groupby, min, max, avg & count** for aggregate analysis and plotting bar charts to visualise data.
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ An in-depth overview of techniques and methods employed in this project are as f
 
 ### Installing
 
-* Save the files from the folder named Data (click the green "clone or download" button and then click "Download ZIP").
+* Save the files from the folder named Datasets (click the green "clone or download" button and then click "Download ZIP").
 * Read the files by using Pandas's read_csv method(**pd.read_csv("filepath")**).
 
 ### Executing program
