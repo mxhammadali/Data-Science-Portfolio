@@ -17,8 +17,8 @@ An in-depth overview of techniques and methods employed in this project are as f
 ### Installing
 
 * Save the files from the folder named Datasets (click the green "clone or download" button and then click "Download ZIP").
-* Load the csv files 
-* Read the files by using Pandas's read_csv method(**pd.read_csv("filepath")**).
+* For details on loading data in to Db2 tables, refer to this link https://www.ibm.com/docs/en/db2-for-zos/12?topic=design-loading-data-into-db2-tables
+* Read the files (only CHICAGO_SOCIOECONOMIC_DATA csv) by using Pandas's read_csv method **pd.read_csv('https://data.cityofchicago.org/resource/jcxq-k9xf.csv')**.
 
 ### Executing program
 
