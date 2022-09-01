@@ -5,8 +5,8 @@ This project involves analysing and answering performance based questions pertai
 ## Description
 
 An in-depth overview of techniques and methods employed in this project are as follows:
-- **Data Loading:** Tasks include manually loading the table using the database console LOAD tool (as opposed to reading the dataset into a Pandas dataframe and then PERSIST it into the database to achieve optimal SQL querying), establsihing a connection with the database (**%sql ibm_db_sa://my-username:my-password@my-hostname:my-port/my-db-name?security=SSL**) and querying the database system catalog to retrieve table metadata.
-- **Data Exploration:** Some of the functions include **CAST()** to change column datatype to conform to numeric comparison in where clauses, **REPLACE()** for improved readibility of output table, using **Group By, MIN, MAX, AVG, SUM & COUNT** for aggregate analysis and plotting bar charts & scatter plots to visualise data.
+- **Data Loading:** Tasks include manually loading the table using the database console LOAD tool (as opposed to reading the dataset into a Pandas dataframe and then PERSIST it into the database to achieve optimal SQL querying), establishing a connection with the database (**%sql ibm_db_sa://my-username:my-password@my-hostname:my-port/my-db-name?security=SSL**) and querying the database system catalog to retrieve table metadata.
+- **Data Exploration:** Some of the functions include **CAST()** to change column datatype to conform to numeric comparison in where clauses, **REPLACE()** for improved readibility of output table, **Implicit Joins** to query multiple tables and explore correlations between columns (eg. hardship index from CHICAGO_SOCIOECONOMIC_DATA table & college enrollment from Chicago Public Schools Data table), **Group By, MIN, MAX, AVG, SUM & COUNT** for aggregate analysis and plotting **bar charts & scatter plots** to visualise data.
 
 ## Getting Started
 
