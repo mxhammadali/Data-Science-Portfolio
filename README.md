@@ -10,6 +10,14 @@ This repository contains various projects involving data extraction (loading dat
   style="display: inline-block; margin: 0 auto; max-width: 600px">
   
   
+  
+ <img
+  src="https://github.com/ma-94/Data-Science-Portfolio/blob/main/Financial%20Compalints%20EDA.png"
+  alt="Alt text"
+  title="Data Visualisation"
+  style="display: inline-block; margin: 0 auto; max-width: 600px">
+  
+  
   <img
   src="https://github.com/ma-94/Data-Science-Portfolio/blob/main/Customer%20Data%20Analysis.png"
   alt="Alt text"
