@@ -1,6 +1,6 @@
 # Data Science Portfolio Projects
 
-This repository 
+This repository contains various projects involving data extraction (loading data in to pandas DataFrame, persisting data using IBM db2), data analysis (SQL magic functions, pandas methods and functions) and data visualisation (Correlation heat maps, bar, line, regression, distribution plots using matplotlib and seaborn along with interactive dashboards in Tableau).
 
 
 <img
