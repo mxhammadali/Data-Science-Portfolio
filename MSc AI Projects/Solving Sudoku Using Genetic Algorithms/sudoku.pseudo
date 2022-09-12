@@ -1,0 +1,175 @@
+// PARAMETERS
+SET edge_fitness to no
+SET max_generations to 10000
+SET target_population_size to 8
+SET number_of_parents to 8
+SET min_population_size to 8
+SET mutation_probability to 100%
+SET parent_selection_procedure to tournament
+SET initial_configuration to [ [ W - - - ]
+                               [ - - - O ]
+                               [ - - - - ]
+                               [ - - - - ] ]
+
+// FITNESS CALCULATION FUNCTION
+FUNCTION CalculateFitness
+    SET row_fitness to (sum of unique symbols per row) divided by 16
+    SET column_fitness to (sum of unique symbols per column) divided by 16
+    SET total_fitness to (row_fitness plus column_fitness) divided by 2
+    RETURN total_fitness
+END FUNCTION
+
+// MUTATION PROCEDURE
+PROCEDURE Mutation(chromosome)
+    SET random_block_choice to block number with two mutable positions (not pre-set in initial configuration)
+    SET random_position1 to random choice from mutable positions
+    SET random_position2 to random choice from mutable positions, except random_position1
+    SET temp_symbol to chromosome[random_position1]
+    SET chromosome[random_position1] to chromosome[random_position2]
+    SET chromosome[random_position2] to temp_symbol
+END PROCEDURE
+
+// TOURNAMENT PARENT SELECTION PROCEDURE
+PROCEDURE RunTournament(population, number_of_parents)
+    FOR each number_of_parents
+        SET random_sample to random sample from population with half of population size
+        SET parent[additional] to fittest chromosome from random_sample
+    END FOR
+    RETURN parents
+END PROCEDURE
+
+// ROULETTE PARENT SELECTION PROCEDURE
+PROCEDURE RunRoulette(population, number_of_parents)
+    SET total_fitness to sum of fitnesses of all chromosomes in population
+    FOR each number_of_parents
+        SET random_choice to value between 0 and total_fitness
+        SET current_chromosome to 1
+        SET watermark to fitness of population[current_chromosome]
+        WHILE random_choice > watermark
+            INCREMENT current_chromosome
+            SET watermark to watermark plus fitness of population[current_chromosome]
+        END WHILE
+        SET parent[additional] to population[current_chromosome]
+    END FOR
+    RETURN parents
+END PROCEDURE
+
+// RANKING PARENT SELECTION PROCEDURE
+PROCEDURE RunRanking(population, number_of_parents)
+    CALL StandardAscendingSort with population along fitness RETURNING sorted_population
+    SET weights equal to rank within sorted_population
+    FOR each number_of_parents
+        SET parent[additional] to random selection from sorted_population with distribution according to weights
+    END FOR
+    RETURN parents
+END PROCEDURE
+
+// PARENT SELECTION PROCEDURE
+PROCEDURE ChooseParents(population, number_of_parents)
+    IF parent_selection_procedure is tournament THEN
+         CALL RunTournament with population RETURNING parents
+    ELSE IF parent_selection_procedure is roulette THEN
+         CALL RunRoulette with population RETURNING parents
+    ELSE // parent_selection_procedure is ranked
+         CALL RunRanking with population RETURNING parents
+    END IF
+    RETURN parents
+END PROCEDURE
+
+// SURVIVOR SELECTION PROCEDURE
+PROCEDURE SurvivorSelection(population, target_populations_size)
+    CALL Sort with population, total_chromosome_fitness
+    SET population to fittest target_populations_size of chromosomes
+END PROCEDURE
+
+// CROSSOVER FUNCTION
+FUNCTION Crossover(parent1, parent2)
+    IF number of unique symbols in each row of upper half of parent1 is larger than of parent 2 THEN
+        SET upper half rows of child1 to upper half of parent1
+    ELSE
+        SET upper half rows of child1 to upper half of parent2
+    END IF
+    IF number of unique symbols in each row of lower half of parent1 is larger than of parent 2 THEN
+        SET lower half rows of child1 to lower half of parent1
+    ELSE
+        SET lower half rows of child1 to lower half of parent2
+    END IF
+    IF number of unique symbols in each column of left half of parent1 is larger than of parent 2 THEN
+        SET left half columns of child2 to left half columns of parent1
+    ELSE
+        SET left half columns of child2 to left half columns of parent2
+    END IF
+    IF number of unique symbols in each column of right half of parent1 is larger than of parent 2 THEN
+        SET right half columns of child2 to right half columns of parent1
+    ELSE
+        SET right half columns of child2 to right half columns of parent2
+    END IF
+END FUNCTION
+
+// VALIDATE AND DERIVE INITIAL SUDOKU CONFIGURATIONS
+PROCEDURE SudokuConfigurationVerification
+    IF edge_fitness is no THEN
+        SET only entry of initial_configurations to initial_configuration
+    ELSE // edge_fitness is yes, i.e. requested
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in row 1
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in row 1
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in row 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in row 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in column 1
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in column 1
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in column 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in column 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in row 1, 'DROW' in row 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in row 1, 'WORD' in row 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'WORD' in col 1, 'DROW' in col 4
+        SET initial_configurations[additional] to initial_configuration overlapped by 'DROW' in col 1, 'WORD' in col 4
+    END IF
+    FOR each configuration in initial_configurations
+        IF any row has non-unique symbols THEN
+            DELETE configuration from initial_configurations
+        ELSE IF any column has non-unique symbols THEN
+            DELETE configuration from initial_configurations
+        ELSE IF any sub-block has non-unique symbols THEN
+            DELETE configuration from initial_configurations
+        END IF
+    END FOR
+    // Complete the sub-blocks with missing symbols
+    FOR each configuration in initial_configurations
+        FOR each sub-block in configuration DO
+            SET missing_symbols to missing symbols in sub-block
+            SET free positions in sub-block with missing symbols randomly
+        END FOR
+    END FOR
+END PROCEDURE
+
+// MAIN PROGRAMME
+CALL SudokuConfigurationVerification RETURNING valid_sudoku_initial_configurations
+IF number of valid_sudoku_initial_configurations larger than 0 THEN
+    population_size = target_populations_size / number of valid_sudoku_initial_configurations
+    IF population_size < min_population_size THEN
+        population_size = min_population_size
+    END IF
+    SET generation to 0
+    CALL CreatePopulation with valid_sudoku_initial_configurations, population_size RETURNING populations
+    WHILE fittest_chromosome from populations is not perfect AND generation < max_generations DO
+        INCREMENT generation
+        FOR each population in populations
+            CALL ChooseParents from population with number_of_parents RETURNING parents
+            FOR each two parents
+                CALL Crossover with two parents RETURNING child1, child2
+                IF random_value within mutation_probability THEN
+                    CALL Mutation with child1
+                    CALL Mutation with child2
+                END IF
+            END FOR
+            SET population[new_child1, new_child2] to new_child1, new_child2
+            CALL SurvivorSelection with population, target_populations_size
+            OUTPUT generation, chromosomes from population
+        END FOR
+    END WHILE
+    OUTPUT "Fittest chromosome is " + fittest_chromosome from populations
+ELSE
+    OUTPUT "No valid initial Sudoku configuration"
+END IF
+
+
