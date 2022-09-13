@@ -14,7 +14,6 @@ This project involves analysing and answering business questions pertaining to S
 
 An in-depth overview of techniques and methods employed in this project are as follows:
 - **Data Cleaning:** Tasks include dropping NaN values from Dataframe, removing rows based on a condition and changing column types (to_numeric, to_datetime, astype.
-- **Data Exploration:** Some of the methods utlised include concatenating multiple csv files to create a single DataFrame (**pd.concat**), adding columns, parsing cells as strings to make new columns (**.str**), using the **.apply()** method, using **groupby** for aggregate analysis and plotting bar charts to visualise data.
 
 ## Getting Started
 
