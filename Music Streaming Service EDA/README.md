@@ -1,6 +1,6 @@
 # Music Streaming Service Analysis with Pandas
 
-This project involves analysing and answering business questions pertaining to 12 months of sales data with the aid of Python libraries (Pandas, Matplotlib). The data contains electronics store purchases broken down by month, product type, cost, purchase address.
+This project involves analysing and answering business questions pertaining to Spotify dataset with the aid of Python libraries (Pandas, Matplotlib, Seaborn). The data contains information such as title, popularity score, release data, dancibility, loudness, energy, acousticness liveness scores.
 
 
 <img
