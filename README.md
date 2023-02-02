@@ -1,6 +1,6 @@
 # Data Science Portfolio Projects
 
-This repository contains various projects involving data creation (obtaining video meta data via Youtube API followed by preprocessing data and engineering additional features for analysis), data extraction (loading data in to pandas DataFrame, persisting data using IBM db2), data analysis (SQL magic functions, pandas methods and functions) and data visualisation (Correlation heat maps, bar, line, regression, distribution plots using matplotlib and seaborn along with interactive dashboards in Tableau). Please visit this link to see Tableau profile: https://public.tableau.com/app/profile/themuhammadali
+This repository contains various projects involving data creation (obtaining video meta data via Youtube API followed by preprocessing data and engineering additional features for analysis), data extraction (loading data in to pandas DataFrame, persisting data using IBM db2), data analysis (SQL magic functions, pandas methods and functions) and data visualisation (Correlation heat maps, bar, line, regression, distribution plots using matplotlib and seaborn along with interactive dashboards in Tableau).
 
 ---
 
